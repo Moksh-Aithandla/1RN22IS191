@@ -1,0 +1,35 @@
+{
+  "name": "average-calculator-microservice-pure",
+  "version": "1.0.0",
+  "description": "Average Calculator Microservice using Pure Node.js (No External Dependencies)",
+  "main": "server-pure.js",
+  "scripts": {
+    "start": "node server-pure.js",
+    "dev": "node server-pure.js",
+    "test": "node test-pure.js",
+    "health": "node -e \"const http = require('http'); http.get('http://localhost:9876/health', (res) => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log(JSON.parse(data))); });\"",
+    "reset": "node -e \"const http = require('http'); const req = http.request({hostname: 'localhost', port: 9876, path: '/reset', method: 'POST'}, (res) => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log(JSON.parse(data))); }); req.end();\"",
+    "stats": "node -e \"const http = require('http'); http.get('http://localhost:9876/stats', (res) => { let data = ''; res.on('data', chunk => data += chunk); res.on('end', () => console.log(JSON.parse(data))); });\""
+  },
+  "keywords": [
+    "microservice",
+    "average-calculator",
+    "sliding-window",
+    "pure-nodejs",
+    "no-dependencies",
+    "rest-api"
+  ],
+  "author": "Moksh Aithandla <1rn22is191.mokshan@rnsit.ac.in>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Moksh-Aithandla/evaluation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Moksh-Aithandla/evaluation/issues"
+  },
+  "homepage": "https://github.com/Moksh-Aithandla/evaluation#readme"
+}
